@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
           
           <div className="social-links">
-            <a href="#" className="social-icon" aria-label="GitHub"><FiGithub /></a>
+            <a href="https://github.com/Sojusaji" className="social-icon" aria-label="GitHub"><FiGithub /></a>
             <a href="#" className="social-icon" aria-label="LinkedIn"><FiLinkedin /></a>
             <a href="#" className="social-icon" aria-label="Twitter"><FiTwitter /></a>
             <a href="#contact" className="social-icon" aria-label="Email"><FiMail /></a>
