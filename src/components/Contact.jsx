@@ -13,15 +13,17 @@ const Contact = () => {
     setIsSubmitting(true);
     setStatus(null);
 
-    // Placeholder credentials, to be replaced by the user in production
-    // Register at emailjs.com to get these keys
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY')
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
       .then((result) => {
-          setStatus('success');
-          formRef.current.reset();
+        setStatus('success');
+        formRef.current.reset();
       }, (error) => {
-          setStatus('error');
-          console.error(error);
+        setStatus('error');
+        console.error(error);
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -34,23 +36,23 @@ const Contact = () => {
         <h2 className="section-title">
           Let's <span className="text-gradient">Connect</span>
         </h2>
-        
+
         <div className="contact-wrapper">
           <div className="contact-info glass-panel">
             <h3>Contact Information</h3>
             <p className="text-secondary mb-4">
-              I'm currently looking for entry-level MERN stack developer opportunities. Feel free to reach out!
+              Whether you are looking to hire a developer or have a project you'd like to bring to life, feel free to reach out!
             </p>
-            
+
             <div className="info-items">
               <div className="info-item">
                 <div className="info-icon"><FiMail /></div>
                 <div>
                   <h4>Email</h4>
-                  <a href="mailto:your.email@example.com" className="text-secondary">your.email@example.com</a>
+                  <a href="mailto:sojusaji.dev@gmail.com" className="text-secondary">sojusaji.dev@gmail.com</a>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <div className="info-icon"><FiPhone /></div>
                 <div>
@@ -58,7 +60,7 @@ const Contact = () => {
                   <p className="text-secondary">+91 00000 00000</p>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <div className="info-icon"><FiMapPin /></div>
                 <div>
@@ -68,28 +70,28 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="contact-form-container glass-panel">
             <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="user_name">Name</label>
                 <input type="text" id="user_name" name="user_name" required placeholder="John Doe" className="form-control" />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="user_email">Email</label>
                 <input type="email" id="user_email" name="user_email" required placeholder="john@example.com" className="form-control" />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" required rows="5" placeholder="How can I help you?" className="form-control"></textarea>
               </div>
-              
+
               <button type="submit" className="btn btn-primary w-full" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : <><FiSend /> Send Message</>}
               </button>
-              
+
               {status === 'success' && (
                 <div className="form-status success">Message sent successfully! I will get back to you soon.</div>
               )}
