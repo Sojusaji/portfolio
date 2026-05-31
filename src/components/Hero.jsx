@@ -24,7 +24,9 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary">
               View My Work <FiArrowRight />
             </a>
-            <a href="#" className="btn btn-outline">
+            <a href="./resume.pdf"
+            download="Sojusaji_Resume.pdf"
+             className="btn btn-outline">
               Download Resume
             </a>
           </div>
