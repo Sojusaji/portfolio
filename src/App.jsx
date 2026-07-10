@@ -50,7 +50,7 @@ function App() {
           
           <div className="footer-links">
             <a href="https://github.com/Sojusaji" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FiGithub /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
+            <a href="https://www.linkedin.com/in/soju-saji/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
             <a href="#" el="noopener noreferrer" aria-label="Twitter"><FiTwitter /></a>
           </div>
           
