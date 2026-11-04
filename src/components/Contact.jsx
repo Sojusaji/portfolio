@@ -53,13 +53,13 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="info-item">
+              {/* <div className="info-item">
                 <div className="info-icon"><FiPhone /></div>
                 <div>
                   <h4>Phone</h4>
                   <p className="text-secondary">+91 00000 00000</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="info-item">
                 <div className="info-icon"><FiMapPin /></div>
