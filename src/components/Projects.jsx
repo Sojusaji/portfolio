@@ -5,6 +5,8 @@ import embWebp from "../assets/project-images/homepage-emb-rolledgold .webp";
 import embPng from '../assets/project-images/homepage-emb-rolledgold.png';
 import embAdminDashBoardPng from "../assets/project-images/emb-superadmin-dashboard.png";
 import embAdminDashBoardWebp from "../assets/project-images/emb-superadmin-dashboard.webp";
+import pgPreviewImagePng from "../assets/project-images/pg-preview-image.png";
+
 const Projects = () => {
   const projects = [
     {
@@ -17,7 +19,8 @@ const Projects = () => {
         png: embPng
       },
       liveLink: '#',
-      githubLink: 'https://github.com/Sojusaji/embroidery-frontend'
+      githubLink: 'https://github.com/Sojusaji/embroidery-frontend',
+      status:'in-progress'
     },
     {
       id: 2,
@@ -29,7 +32,20 @@ const Projects = () => {
         png: embAdminDashBoardPng
       },
       liveLink: '#',
-      githubLink: 'https://github.com/Sojusaji/embroidery-server'
+      githubLink: 'https://github.com/Sojusaji/embroidery-server',
+      status:'in-progress'
+    },
+    {
+      id: 3,
+      title: "Terrace Suites — Student & Working Professionals PG Landing Page",
+      description: 'A light-mode SSR landing page designed to showcase student paying guest (PG) accommodations. Integrates one-click WhatsApp routing, direct phone inquiry links and interactive Google Maps integration to verify proximity to educational institutions.',
+      techStack: ['React', 'TypeScript', 'TanStack Start', 'TanStack Query', 'Tailwind CSS'],
+      images: {
+        png: pgPreviewImagePng
+      },
+      liveLink: 'https://terracesuites.vercel.app',
+      githubLink: 'https://github.com/Sojusaji/student-pg-website',
+      status:'live'
     }
   ];
 
@@ -43,7 +59,7 @@ const Projects = () => {
         <div className="projects-grid">
           {projects.map((project) => (
             <div className="project-card glass-panel" key={project.id}>
-              <div className="project-image">
+              <div className="project-image" style={{ '--bg-image': `url(${project.images.png})` }}>
                 <picture>
                   <source srcSet={project.images.webp} type="image/webp" />
                   <img src={project.images.png} alt={project.title}
@@ -63,7 +79,13 @@ const Projects = () => {
                 <p className="project-desc text-secondary">{project.description}</p>
 
                 <div className="tech-tags">
-                  <span className="tech-tag status-badge">🚀 In Active Development</span>
+                  {project.status === 'in-progress' && (
+                    <span className="tech-tag status-badge">🚀 In Active Development</span>
+                  )}
+                  {project.status === 'live' && (
+                    <span className="tech-tag status-badge live-badge">✨ Live Production</span>
+                  )}
+
                   {project.techStack.map((tech, index) => (
                     <span key={index} className="tech-tag">{tech}</span>
                   ))}
